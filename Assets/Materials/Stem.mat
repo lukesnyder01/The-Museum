@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 12
+  version: 13
   hdPluginSubTargetMaterialVersions:
     m_Keys: []
     m_Values: 
@@ -38,6 +38,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Stem
   m_Shader: {fileID: -6465566751694194690, guid: e36ee4a9811b55c4c84dcb15c935887a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
   m_InvalidKeywords: []
@@ -53,6 +55,7 @@ Material:
   - TransparentBackface
   - MOTIONVECTORS
   - RayTracingPrepass
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -153,12 +156,16 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
+    - _DstBlend2: 0
     - _Emission: 0
     - _EnableBlendModePreserveSpecularLighting: 0
     - _EnableFogOnTransparent: 1
+    - _ExcludeFromTUAndAA: 0
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _MaterialID: 1
+    - _MaterialTypeMask: 2
     - _Metallic: 0
     - _Mode: 0
     - _Normal_Amount: 2.85
@@ -166,6 +173,7 @@ Material:
     - _OcclusionStrength: 1
     - _OpaqueCullMode: 2
     - _Parallax: 0.005
+    - _PerPixelSorting: 0
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
@@ -182,13 +190,14 @@ Material:
     - _StencilRefGBuffer: 10
     - _StencilRefMV: 40
     - _StencilWriteMask: 6
-    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDepth: 9
     - _StencilWriteMaskDistortionVec: 4
-    - _StencilWriteMaskGBuffer: 14
-    - _StencilWriteMaskMV: 40
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
     - _SupportDecals: 1
     - _SurfaceType: 0
     - _Tile: 0.33
+    - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
@@ -209,3 +218,4 @@ Material:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _Tint: {r: 0.35407645, g: 0.5943396, b: 0.31679422, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
