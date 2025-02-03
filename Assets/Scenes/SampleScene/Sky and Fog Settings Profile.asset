@@ -65,7 +65,7 @@ MonoBehaviour:
     m_Value: 255
   reflectionLightingMultiplier:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   reflectionLightingLayers:
     m_OverrideState: 0
     m_Value: 255
@@ -248,7 +248,7 @@ MonoBehaviour:
   active: 1
   opacity:
     m_OverrideState: 1
-    m_Value: 0.375
+    m_Value: 0.513
   upperHemisphereOnly:
     m_OverrideState: 0
     m_Value: 1
@@ -323,7 +323,7 @@ MonoBehaviour:
       m_Value: 1
     steps:
       m_OverrideState: 0
-      m_Value: 1
+      m_Value: 2
     thickness:
       m_OverrideState: 0
       m_Value: 0.765

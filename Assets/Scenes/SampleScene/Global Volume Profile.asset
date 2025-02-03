@@ -16,7 +16,6 @@ MonoBehaviour:
   - {fileID: 8092821278254586392}
   - {fileID: 709260281508524066}
   - {fileID: 3072939770875330968}
-  - {fileID: 7989317324432117243}
   - {fileID: 3325458960889216657}
 --- !u!114 &709260281508524066
 MonoBehaviour:
@@ -213,6 +212,9 @@ MonoBehaviour:
   mode:
     m_OverrideState: 1
     m_Value: 2
+  useFullACES:
+    m_OverrideState: 0
+    m_Value: 0
   toeStrength:
     m_OverrideState: 0
     m_Value: 0
@@ -237,34 +239,33 @@ MonoBehaviour:
   lutContribution:
     m_OverrideState: 0
     m_Value: 1
---- !u!114 &7989317324432117243
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f034cba68ab55e046ae1445a42f18c0e, type: 3}
-  m_Name: IndirectLightingController
-  m_EditorClassIdentifier: 
-  active: 1
-  indirectDiffuseLightingMultiplier:
-    m_OverrideState: 1
-    m_Value: 1
-  indirectDiffuseLightingLayers:
+  neutralHDRRangeReductionMode:
     m_OverrideState: 0
-    m_Value: 255
-  reflectionLightingMultiplier:
-    m_OverrideState: 1
-    m_Value: 1
-  reflectionLightingLayers:
+    m_Value: 2
+  acesPreset:
     m_OverrideState: 0
-    m_Value: 255
-  reflectionProbeIntensityMultiplier:
-    m_OverrideState: 1
+    m_Value: 3
+  fallbackMode:
+    m_OverrideState: 0
     m_Value: 1
+  hueShiftAmount:
+    m_OverrideState: 0
+    m_Value: 0
+  detectPaperWhite:
+    m_OverrideState: 0
+    m_Value: 0
+  paperWhite:
+    m_OverrideState: 0
+    m_Value: 300
+  detectBrightnessLimits:
+    m_OverrideState: 0
+    m_Value: 1
+  minNits:
+    m_OverrideState: 0
+    m_Value: 0.005
+  maxNits:
+    m_OverrideState: 0
+    m_Value: 1000
 --- !u!114 &8092821278254586392
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -278,33 +279,34 @@ MonoBehaviour:
   m_Name: HDShadowSettings
   m_EditorClassIdentifier: 
   active: 1
+  interCascadeBorders: 1
   maxShadowDistance:
     m_OverrideState: 0
     m_Value: 500
   directionalTransmissionMultiplier:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   cascadeShadowSplitCount:
     m_OverrideState: 1
     m_Value: 4
   cascadeShadowSplit0:
     m_OverrideState: 1
-    m_Value: 0.348
+    m_Value: 0.008619053
   cascadeShadowSplit1:
     m_OverrideState: 1
-    m_Value: 0.496
+    m_Value: 0.034047637
   cascadeShadowSplit2:
     m_OverrideState: 1
-    m_Value: 0.606
+    m_Value: 0.115323916
   cascadeShadowBorder0:
-    m_OverrideState: 0
-    m_Value: 0.053000003
+    m_OverrideState: 1
+    m_Value: 0.6139178
   cascadeShadowBorder1:
-    m_OverrideState: 0
-    m_Value: 0.686
+    m_OverrideState: 1
+    m_Value: 0.4396868
   cascadeShadowBorder2:
-    m_OverrideState: 0
-    m_Value: 0.393
+    m_OverrideState: 1
+    m_Value: 0.14979175
   cascadeShadowBorder3:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.9483953
