@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
             PlayerHitsGround();
 
-            characterController.stepOffset = 0.5f;          //allows player to climb stairs
+            characterController.stepOffset = 0.1f;          //allows player to climb stairs
         }
         else
         {
@@ -107,7 +107,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            Debug.Log("Tried to jump");
             velocity.y += jumpForce;
         }
 
@@ -118,16 +117,9 @@ public class PlayerController : MonoBehaviour
             velocity.y = jumpForce;
         }
 
-
         velocity.y += gravity * Time.deltaTime;
 
-
         characterController.Move(moveDirection * Time.deltaTime + velocity * Time.deltaTime);
-
-
-
-
-
     }
 
 
@@ -135,7 +127,7 @@ public class PlayerController : MonoBehaviour
     void PlayerHitsGround()
     {
 
-        if (velocity.y < 0f)                                //slowly push player down so they keep in contact with the ground
+        if (velocity.y < 0f) //slowly push player down so they keep in contact with the ground
         {
             velocity.y = -2f;
         }
@@ -157,21 +149,5 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
-    /*
-    void PlayFootsteps()
-    {
-        if (moveDirection != new Vector3(0f, 0f, 0f) && Mathf.Abs(velocity.y) < 0.52)
-        {
-            nextFootStep -= Time.deltaTime;
-
-            if (nextFootStep <= 0f)
-            {
-                audioManager.Play("PlayerStep");
-                nextFootStep += footStepDelay + 0.25f / moveSpeed;
-            }
-        }
-    }
-    */
 
 }
