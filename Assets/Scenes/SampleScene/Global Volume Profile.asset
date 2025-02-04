@@ -34,8 +34,8 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: -0.5
   contrast:
-    m_OverrideState: 0
-    m_Value: 58.8
+    m_OverrideState: 1
+    m_Value: 18.8
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Value: 19
   saturation:
     m_OverrideState: 1
-    m_Value: 43.8
+    m_Value: 18.9
 --- !u!114 &3072939770875330968
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -63,7 +63,7 @@ MonoBehaviour:
     m_Value: 1
   meteringMode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 2
   luminanceSource:
     m_OverrideState: 0
     m_Value: 1
@@ -72,13 +72,13 @@ MonoBehaviour:
     m_Value: 13
   compensation:
     m_OverrideState: 0
-    m_Value: -0.5
+    m_Value: -3.66
   limitMin:
     m_OverrideState: 1
-    m_Value: 12.581915
+    m_Value: 10.990473
   limitMax:
     m_OverrideState: 1
-    m_Value: 12.171578
+    m_Value: 12.185713
   curveMap:
     m_OverrideState: 0
     m_Value:
