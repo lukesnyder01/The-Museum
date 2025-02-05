@@ -63,7 +63,7 @@ MonoBehaviour:
     m_Value: 1
   meteringMode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
   luminanceSource:
     m_OverrideState: 0
     m_Value: 1
@@ -75,10 +75,10 @@ MonoBehaviour:
     m_Value: -3.66
   limitMin:
     m_OverrideState: 1
-    m_Value: 10.990473
+    m_Value: 11.897844
   limitMax:
     m_OverrideState: 1
-    m_Value: 12.185713
+    m_Value: 12.117661
   curveMap:
     m_OverrideState: 0
     m_Value:

@@ -62,19 +62,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
-
         xMove = Input.GetAxis("Horizontal");
         zMove = Input.GetAxis("Vertical");
 
-
         SetPlayerMoveSpeed();
-
 
         isGrounded = Physics.CheckSphere(groundCheckPosition.position, groundCheckRadius, groundMask);
 
         hitHead = Physics.CheckSphere(headCheckPosition.position, headCheckRadius, groundMask);
-
 
         if (isGrounded)
         {
@@ -88,12 +83,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-
-
         moveDirection = transform.right * xMove * moveSpeed * lateralSprintSpeedPenalty + transform.forward * zMove * moveSpeed;
-
-
-
 
         if (hitHead && velocity.y > 0)
         {
