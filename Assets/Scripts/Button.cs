@@ -16,7 +16,7 @@ public class Button : MonoBehaviour, IInteractable
 
     void Start()
     {
-        if (target.TryGetComponent<IActivatable>(out IActivatable activatable))
+        if (target != null && target.TryGetComponent<IActivatable>(out IActivatable activatable))
         {
             targetActivatable = activatable;
         }
