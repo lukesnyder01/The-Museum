@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 709260281508524066}
   - {fileID: 3072939770875330968}
   - {fileID: 3325458960889216657}
+  - {fileID: 3806072544790887743}
 --- !u!114 &709260281508524066
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -35,7 +36,7 @@ MonoBehaviour:
     m_Value: -0.5
   contrast:
     m_OverrideState: 1
-    m_Value: 1.3
+    m_Value: 31.3
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -44,7 +45,7 @@ MonoBehaviour:
     m_Value: 19
   saturation:
     m_OverrideState: 1
-    m_Value: 11.3
+    m_Value: 12
 --- !u!114 &3072939770875330968
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -60,7 +61,7 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   meteringMode:
     m_OverrideState: 1
     m_Value: 0
@@ -69,16 +70,16 @@ MonoBehaviour:
     m_Value: 1
   fixedExposure:
     m_OverrideState: 1
-    m_Value: 12.791908
+    m_Value: 12.888198
   compensation:
     m_OverrideState: 0
     m_Value: -2.62
   limitMin:
     m_OverrideState: 1
-    m_Value: 12.0737
+    m_Value: 10.572254
   limitMax:
     m_OverrideState: 1
-    m_Value: 13.166185
+    m_Value: 13.7904625
   curveMap:
     m_OverrideState: 0
     m_Value:
@@ -266,6 +267,34 @@ MonoBehaviour:
   maxNits:
     m_OverrideState: 0
     m_Value: 1000
+--- !u!114 &3806072544790887743
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f034cba68ab55e046ae1445a42f18c0e, type: 3}
+  m_Name: IndirectLightingController
+  m_EditorClassIdentifier: 
+  active: 1
+  indirectDiffuseLightingMultiplier:
+    m_OverrideState: 1
+    m_Value: 0.05
+  indirectDiffuseLightingLayers:
+    m_OverrideState: 0
+    m_Value: 65535
+  reflectionLightingMultiplier:
+    m_OverrideState: 1
+    m_Value: 0.5
+  reflectionLightingLayers:
+    m_OverrideState: 0
+    m_Value: 65535
+  reflectionProbeIntensityMultiplier:
+    m_OverrideState: 1
+    m_Value: 0.5
 --- !u!114 &8092821278254586392
 MonoBehaviour:
   m_ObjectHideFlags: 3
