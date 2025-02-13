@@ -166,10 +166,10 @@ Material:
     - _GlossyReflections: 1
     - _MaterialID: 1
     - _MaterialTypeMask: 2
-    - _Metallic: 0
+    - _Metallic: 0.142
     - _Mode: 0
     - _Normal_Amount: 2.85
-    - _Normal_Strength: 1.22
+    - _Normal_Strength: 1.09
     - _OcclusionStrength: 1
     - _OpaqueCullMode: 2
     - _Parallax: 0.005
@@ -180,7 +180,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Smoothness: 0.116
+    - _Smoothness: 0.307
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -196,7 +196,7 @@ Material:
     - _StencilWriteMaskMV: 41
     - _SupportDecals: 1
     - _SurfaceType: 0
-    - _Tile: 0.22
+    - _Tile: 0.27
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
