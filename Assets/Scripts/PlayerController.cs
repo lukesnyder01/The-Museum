@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
             PlayerHitsGround();
 
-            characterController.stepOffset = 0.1f;          //allows player to climb stairs
+            characterController.stepOffset = 0.3f;          //allows player to climb stairs
         }
         else
         {
