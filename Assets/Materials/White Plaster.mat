@@ -168,12 +168,12 @@ Material:
     - _GlossyReflections: 1
     - _MaterialID: 1
     - _MaterialTypeMask: 2
-    - _Metallic: 0.214
+    - _Metallic: 0.235
     - _Mode: 0
     - _Noise_Amount: 0.87
     - _Noise_Scale: -0.04
     - _Normal_Amount: 2.85
-    - _Normal_Strength: 0.58
+    - _Normal_Strength: 1.08
     - _Normal_Tile: 0.2
     - _OcclusionStrength: 1
     - _Octave_Blend: 1
