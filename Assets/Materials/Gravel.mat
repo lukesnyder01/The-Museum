@@ -249,6 +249,8 @@ Material:
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
+    - _Albedo_Octave_Tile: 0.1
+    - _Albedo_Tile: 0.1
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
     - _AlphaCutoffPostpass: 0.5
@@ -330,10 +332,13 @@ Material:
     - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
     - _Mode: 0
+    - _Noise_Amount: 0
+    - _Noise_Scale: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _Normal_Amount: 2.08
-    - _Normal_Strength: 1.08
+    - _Normal_Strength: 2.03
+    - _Normal_Tile: 0.1
     - _OcclusionStrength: 1
     - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
