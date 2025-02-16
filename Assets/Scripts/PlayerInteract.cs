@@ -17,7 +17,6 @@ public class PlayerInteract : MonoBehaviour
 
     private string defaultInteractText = "[E]";
 
-
     void Awake()
     {
         cameraTransform = Camera.main.transform;
