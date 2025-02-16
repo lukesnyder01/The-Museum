@@ -8,7 +8,7 @@ public class Button : MonoBehaviour, IInteractable
     private IActivatable targetActivatable;
 
     private Vector3 depressTargetPos;
-    private float pressDistance = 0.05f;
+    private float pressDistance = 0.02f;
     private float returnTime = 0.1f;
     private Vector3 startPosition;
 
@@ -30,7 +30,6 @@ public class Button : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("Pressed Button");
         StartCoroutine(DepressButton());
         audioSource.Play();
 
@@ -38,8 +37,6 @@ public class Button : MonoBehaviour, IInteractable
         {
             targetActivatable.Activate();
         }
-
-
     }
 
 
