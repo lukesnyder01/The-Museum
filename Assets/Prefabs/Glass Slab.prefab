@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7325240512076479755}
   - component: {fileID: 3117337431615520357}
   - component: {fileID: 1634199763265030653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Glass Slab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
