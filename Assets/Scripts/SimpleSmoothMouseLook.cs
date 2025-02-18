@@ -13,6 +13,8 @@ public class SimpleSmoothMouseLook : MonoBehaviour
     public Vector2 targetDirection;
     public Vector2 targetCharacterDirection;
 
+    public bool mouseLookLocked = false;
+
     // Assign this if there's a parent object controlling motion, such as a Character Controller.
     // Yaw rotation will affect this object instead of the camera if set.
     public GameObject characterBody;
@@ -31,7 +33,7 @@ public class SimpleSmoothMouseLook : MonoBehaviour
 
     void Update()
     {
-        if (!PauseMenu.gameIsPaused)
+        if (!mouseLookLocked)
         {
             // Ensure the cursor is always locked when set
             if (lockCursor)
@@ -64,7 +66,7 @@ public class SimpleSmoothMouseLook : MonoBehaviour
             if (clampInDegrees.y < 360)
                 _mouseAbsolute.y = Mathf.Clamp(_mouseAbsolute.y, -clampInDegrees.y * 0.5f, clampInDegrees.y * 0.5f);
 
-            if (!PauseMenu.gameIsPaused)
+            if (!mouseLookLocked)
             {
                 transform.localRotation = Quaternion.AngleAxis(-_mouseAbsolute.y, targetOrientation * Vector3.right) * targetOrientation;
             }
@@ -72,12 +74,12 @@ public class SimpleSmoothMouseLook : MonoBehaviour
 
 
             // If there's a character body that acts as a parent to the camera
-            if (characterBody && !PauseMenu.gameIsPaused)
+            if (characterBody && !mouseLookLocked)
             {
                 var yRotation = Quaternion.AngleAxis(_mouseAbsolute.x, Vector3.up);
                 characterBody.transform.localRotation = yRotation * targetCharacterOrientation;
             }
-            else if (!PauseMenu.gameIsPaused)
+            else if (!mouseLookLocked)
             {
                 var yRotation = Quaternion.AngleAxis(_mouseAbsolute.x, transform.InverseTransformDirection(Vector3.up));
                 transform.localRotation *= yRotation;

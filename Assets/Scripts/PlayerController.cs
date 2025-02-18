@@ -47,9 +47,7 @@ public class PlayerController : MonoBehaviour
     private bool hitHead;
     private Vector3 velocity;
 
-
-
-
+    public bool movementLocked = false;
 
     void Start()
     {
@@ -110,7 +108,11 @@ public class PlayerController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
 
-        characterController.Move(moveDirection * Time.deltaTime + velocity * Time.deltaTime);
+        if (!movementLocked)
+        {
+            characterController.Move(moveDirection * Time.deltaTime + velocity * Time.deltaTime);
+        }
+
     }
 
 

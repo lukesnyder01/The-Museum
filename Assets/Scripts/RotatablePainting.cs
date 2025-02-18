@@ -13,7 +13,17 @@ public class RotatablePainting: MonoBehaviour, IActivatable
 
     void Start()
     {
+        // Rotate the paintings towards its current rotation on start
+        // to prevent the weird material/shader issue that shows
+        // the material as light blue for a few frames the first time
+        // you move a painting.
+
+        // Theoretically, it's something to do with the shader variant compiling
+        // at runtime, and I think this forces it to compile right at the start
+        // while we can't even see it.
+
         targetRotation = transform.rotation;
+        Quaternion.RotateTowards(transform.rotation, targetRotation, 360);
     }
 
     public void Activate()
