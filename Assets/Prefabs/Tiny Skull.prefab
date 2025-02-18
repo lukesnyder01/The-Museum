@@ -360,7 +360,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3601
+  m_VersionIndex: 3610
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -457,6 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inspectDistance: 0.5
+  canvas: {fileID: 0}
 --- !u!135 &3317623944114900073
 SphereCollider:
   m_ObjectHideFlags: 0

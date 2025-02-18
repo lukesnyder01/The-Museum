@@ -14,10 +14,13 @@ public class InspectableObject : MonoBehaviour, IInteractable
     private PlayerController playerController;
     private SimpleSmoothMouseLook playerMouseLook;
 
+    public GameObject canvas;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         playerMouseLook = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SimpleSmoothMouseLook>();
 
@@ -53,19 +56,20 @@ public class InspectableObject : MonoBehaviour, IInteractable
     {
         isBeingInspected = true;
 
+        canvas.SetActive(false);
+
         playerController.movementLocked = true;
         playerMouseLook.mouseLookLocked = true;
 
         transform.position = cameraTransform.position + cameraTransform.forward * inspectDistance;
         transform.rotation = cameraTransform.rotation;
-
-
-
     }
 
     void StopInspecting()
     {
         isBeingInspected = false;
+
+        canvas.SetActive(true);
 
         playerController.movementLocked = false;
         playerMouseLook.mouseLookLocked = false;
