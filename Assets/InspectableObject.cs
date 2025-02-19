@@ -30,6 +30,12 @@ public class InspectableObject : MonoBehaviour, IInteractable
         startRotation = transform.rotation;
 
         cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
+
+        // Move the object to its start position
+        // to try and compile the shader variant
+        transform.position = startPosition;
+        transform.rotation = startRotation;
+
     }
 
     // Update is called once per frame
