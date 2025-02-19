@@ -14,12 +14,13 @@ public class InspectableObject : MonoBehaviour, IInteractable
     private PlayerController playerController;
     private SimpleSmoothMouseLook playerMouseLook;
 
-    public GameObject canvas;
+    private GameObject canvas;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        canvas = GameObject.Find("Canvas");
 
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         playerMouseLook = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SimpleSmoothMouseLook>();
