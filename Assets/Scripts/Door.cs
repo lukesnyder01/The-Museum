@@ -19,7 +19,7 @@ public class Door : MonoBehaviour, IActivatable
     private bool doorIsMoving = false;
 
 
-    [ContextMenu("Set CLosed Position And Rotation")]
+    [ContextMenu("Set Closed Position And Rotation")]
     private void SetClosedState()
     {
         closedPosition = transform.position;
