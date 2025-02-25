@@ -28,8 +28,8 @@ Material:
   disabledShaderPasses:
   - MOTIONVECTORS
   - RayTracingPrepass
-  - TransparentBackface
   - TransparentDepthPostpass
+  - TransparentBackface
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -223,17 +223,17 @@ Material:
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
     - _InvTilingScale: 10
-    - _Ior: 2.389
+    - _Ior: 2.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 0
     - _MaterialID: 1
-    - _Metallic: 0.287
+    - _Metallic: 0.061
     - _MetallicRemapMax: 0.068172336
     - _MetallicRemapMin: 0
     - _Mode: 3
     - _NormalMapSpace: 0
-    - _NormalScale: 0.01
+    - _NormalScale: 0.04
     - _ObjectSpaceUVMapping: 0
     - _ObjectSpaceUVMappingEmissive: 0
     - _OcclusionStrength: 1
@@ -292,9 +292,9 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 0.015686275}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 0.015686275}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 0.015686275}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.015686275}
     - _DiffusionProfileAsset: {r: 7.0053284e-25, g: 4.8653033e-17, b: 4.423432e-26, a: -6.833857e+33}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
@@ -304,7 +304,7 @@ Material:
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _TransmittanceColor: {r: 0.8219224, g: 0.888843, b: 0.90943396, a: 1}
+    - _TransmittanceColor: {r: 0.8771876, g: 0.9122754, b: 0.9169811, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
