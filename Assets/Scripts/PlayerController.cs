@@ -71,14 +71,7 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded)
         {
-
             PlayerHitsGround();
-
-            characterController.stepOffset = 0.3f;          //allows player to climb stairs
-        }
-        else
-        {
-
         }
 
         moveDirection = transform.right * xMove * moveSpeed * lateralSprintSpeedPenalty + transform.forward * zMove * moveSpeed;
@@ -86,11 +79,6 @@ public class PlayerController : MonoBehaviour
         if (hitHead && velocity.y > 0)
         {
             velocity.y = -0.1f;
-        }
-
-        if (!isGrounded)
-        {
-            characterController.stepOffset = 0.0001f;       //prevents player from catching on edges when jumping up near them
         }
 
 
