@@ -33,6 +33,9 @@ public class SimpleSmoothMouseLook : MonoBehaviour
 
     void Update()
     {
+        if (PauseMenu.gameIsPaused)
+            return;
+
         if (!mouseLookLocked)
         {
             // Ensure the cursor is always locked when set

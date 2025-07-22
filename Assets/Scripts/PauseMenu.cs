@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pauseMenuUI.SetActive(false);
+        gameIsPaused = false;
     }
 
     // Update is called once per frame
@@ -49,7 +50,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void QuitGame()
+    public static void QuitGame()
     {
         Debug.Log("Quitting game...");
         Application.Quit();
