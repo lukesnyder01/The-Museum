@@ -41,6 +41,7 @@ public class PlayerInteract : MonoBehaviour
             }
             else // Hit something, but not  an interactable
             {
+                currentTarget = null;
                 interactText.text = null;
             }
         }
