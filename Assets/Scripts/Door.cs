@@ -18,6 +18,8 @@ public class Door : MonoBehaviour, IActivatable
     private bool doorIsClosed = true;
     private bool doorIsMoving = false;
 
+    public bool doorCanClose = true;
+
 
     [ContextMenu("Set Closed Position And Rotation")]
     private void SetClosedState()
@@ -48,7 +50,7 @@ public class Door : MonoBehaviour, IActivatable
 
                 doorIsClosed = false;
             }
-            else
+            else if (doorCanClose)
             {
                 targetPosition = closedPosition;
                 targetRotation = closedRotation;
