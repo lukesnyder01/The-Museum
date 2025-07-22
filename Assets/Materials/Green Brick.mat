@@ -255,7 +255,7 @@ Material:
     - _LinkDetailsWithBase: 0
     - _MaterialID: 1
     - _MaterialTypeMask: 2
-    - _Metallic: 0.227
+    - _Metallic: 0.494
     - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
     - _Mode: 0
@@ -264,7 +264,7 @@ Material:
     - _NormalMapSpace: 0
     - _NormalScale: 3
     - _Normal_Amount: 3.82
-    - _Normal_Strength: 0.4
+    - _Normal_Strength: 1.23
     - _Normal_Tile: 0.1
     - _OcclusionStrength: 1
     - _OpaqueCullMode: 2
@@ -281,7 +281,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Smoothness: 0.597
+    - _Smoothness: 0.709
     - _SmoothnessRemapMax: 0
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
@@ -306,7 +306,7 @@ Material:
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
-    - _Tile: 0.4
+    - _Tile: 0.17
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
