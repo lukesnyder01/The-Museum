@@ -37,8 +37,6 @@ public class Door : MonoBehaviour, IActivatable
     }
 
 
-
-
     public void Activate()
     {
         if (doorIsMoving == false)
@@ -62,6 +60,8 @@ public class Door : MonoBehaviour, IActivatable
         }
     }
 
+
+
     private IEnumerator RotateAndMoveDoor()
     {
         doorIsMoving = true;
@@ -70,6 +70,7 @@ public class Door : MonoBehaviour, IActivatable
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            
 
             yield return null;
         }

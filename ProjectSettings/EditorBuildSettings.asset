@@ -4,5 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Courtyard.unity
+    guid: 15e0363c5b8776e47ac2b22e1a874acd
+  - enabled: 1
+    path: Assets/Scenes/Entry Hall.unity
+    guid: e2816e2557a5bd448a32822ed53fb802
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
