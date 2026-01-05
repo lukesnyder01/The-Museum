@@ -9,11 +9,9 @@ public class PlayerController : MonoBehaviour
     public float runSpeed;
     public bool isRunning;
 
-
     public float jumpForce;
 
     public float gravity;
-    public float lateralSprintSpeedPenalty = 0.75f;
 
 
     [Header("References")]
@@ -35,25 +33,30 @@ public class PlayerController : MonoBehaviour
 
     private float xMove;
     private float zMove;
+    private float ySpeed;
 
+    private float movementSmoothing = 15f;
+
+    private Vector3 targetMoveDir;
     private Vector3 movementVector;
 
     private Vector3 inputDirection;
 
     private float moveSpeed;
     private bool isGrounded;
-    private bool isSliding;
+
 
     private bool hitHead;
 
     public bool movementLocked = false;
 
+
+    private bool isSliding;
     private Vector3 slideVector;
     private float slideAcceleration = 0f;
-    private float slopeSlideSpeed = 3f;
     private RaycastHit slopeHit;
 
-
+    private Vector3 hitNormal;
 
 
     void Start()
@@ -67,80 +70,85 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        HandleGrounding();
+
         xMove = Input.GetAxisRaw("Horizontal");
         zMove = Input.GetAxisRaw("Vertical");
 
         SetPlayerMoveSpeed();
 
-        GetGroundedState();
-
-        //isGrounded = Physics.CheckSphere(groundCheckPosition.position, groundCheckRadius, groundMask);
-
         hitHead = Physics.CheckSphere(headCheckPosition.position, headCheckRadius, groundMask);
+
+        inputDirection = (transform.right * xMove + transform.forward * zMove).normalized;
+
+        targetMoveDir = inputDirection * moveSpeed;
+
+        bool isAgainstSteepSlope = Vector3.Angle(Vector3.up, hitNormal) > characterController.slopeLimit;
 
         if (isGrounded)
         {
             PlayerHitsGround();
+
+            if (isSliding && ySpeed <= 0)
+            {
+                SteepSlopeMovement();
+            }
+            else
+            {
+                slideAcceleration = 0f;
+                slideVector = Vector3.zero;
+            }
         }
 
-        inputDirection = (transform.right * xMove + transform.forward * zMove).normalized;
+        ySpeed += gravity * Time.deltaTime;
 
-        movementVector.x = inputDirection.x * moveSpeed;
-        movementVector.z = inputDirection.z * moveSpeed;
-
-        if (isSliding && movementVector.y <= 0)
+        if (hitHead && ySpeed > 0)
         {
-            SteepSlopeMovement();
-        }
-        else 
-        {
-            slideAcceleration = 0f;
-            const float SLIDE_DECAY = 5f;
-            slideVector = Vector3.Lerp(slideVector, Vector3.zero, SLIDE_DECAY * Time.deltaTime);
-        }
-
-
-        if (hitHead && movementVector.y > 0)
-        {
-            movementVector.y = -0.1f;
+            ySpeed = -0.1f;
         }
 
         if (Input.GetButtonDown("Jump") && isGrounded && !isSliding)
         {
-            movementVector.y += jumpForce;
+            ySpeed += jumpForce;
         }
 
 
         //clamp maximum vertical speed from jumping
-        if (movementVector.y > jumpForce)
+        if (ySpeed > jumpForce)
         {
-            movementVector.y = jumpForce;
+            ySpeed = jumpForce;
         }
 
-        movementVector.y += gravity * Time.deltaTime;
-
+        movementVector = Vector3.MoveTowards(movementVector, targetMoveDir, movementSmoothing * Time.deltaTime);
 
         Vector3 totalMovement = movementVector + slideVector;
 
 
         if (!movementLocked)
         {
-            characterController.Move(totalMovement * Time.deltaTime);
+            characterController.Move((totalMovement + new Vector3(0, ySpeed, 0)) * Time.deltaTime);
         }
 
     }
 
-    void GetGroundedState()
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        // Store the normal of the surface we are hitting
+        hitNormal = hit.normal;
+    }
+
+
+    void HandleGrounding()
     {
         // Reset states
         isGrounded = false;
         isSliding = false;
 
         Vector3 playerPos = transform.position;
-        const float RAY_DISTANCE = 1.2f;
+        const float RAY_DISTANCE = 1.15f;
         const int RAY_COUNT = 16;
         const float ANGLE_STEP = 360f / RAY_COUNT;
-        const float RAYCAST_RADIUS = 0.52f;
+        const float RAYCAST_RADIUS = 0.4f;
 
         // Raycase downward in a ring around the player
         for (int i = 0; i < RAY_COUNT; i++)
@@ -151,21 +159,20 @@ public class PlayerController : MonoBehaviour
 
             if (Physics.Raycast(rayOrigin, Vector3.down, out var hitInRing, RAY_DISTANCE, groundMask))
             {
-                // If we hit anything, we're grounded
-                isGrounded = true;
-
-                float hitAngle = Vector3.Angle(hitInRing.normal, Vector3.up);
+                float hitAngle = Vector3.Angle(Vector3.up, hitInRing.normal);
 
                 // If any of the rays hit flat ground, we aren't sliding and exit the loop
                 if (hitAngle < characterController.slopeLimit)
                 {
+                    isGrounded = true;
                     isSliding = false;
                     break;
                 }
                     
                 // Check if we hit a steep slope and haven't hit a flat area yet, we use this slope and start sliding
-                if (hitAngle > characterController.slopeLimit && hitAngle < 90f)
+                if (hitAngle > characterController.slopeLimit && hitAngle < 89)
                 {
+                    isGrounded = true;
                     isSliding = true;
                     slopeHit = hitInRing;
                 }
@@ -173,34 +180,40 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     private void SteepSlopeMovement()
     {
-        if (slopeHit.collider == null) return;
-
-        // Calculate the downhill direction
+        // 1. Calculate the downhill direction based on the slope hit
         Vector3 slopeDir = Vector3.ProjectOnPlane(Vector3.down, slopeHit.normal).normalized;
 
-        // Calculate slope angle
-        float slopeAngle = Vector3.Angle(slopeHit.normal, Vector3.up);
-        float steepness = Mathf.Clamp01((slopeAngle - characterController.slopeLimit) / 90f);
-
-        // Calculate control reduction - clamp to avoid negative values
-        float controlFactor = Mathf.Max(0f, 0.5f - steepness);
-        movementVector *= controlFactor;
-        movementVector = Vector3.zero;
-
-        // Apply gravity-based sliding
+        // 2. Apply gravity-based sliding
         slideAcceleration += -gravity * Time.deltaTime;
         slideVector = slopeDir * slideAcceleration;
+
+        // 3. DEFLECTION LOGIC: Instead of setting movementVector to zero, 
+        // we "clean" the movementVector so it doesn't push into the wall.
+
+        // Get the direction the player is trying to move
+        Vector3 currentInput = (transform.right * xMove + transform.forward * zMove).normalized * moveSpeed;
+
+        // If we are moving TOWARD the wall (Dot product < 0), project the movement onto the wall plane
+        if (Vector3.Dot(currentInput, hitNormal) < 0)
+        {
+            movementVector = Vector3.ProjectOnPlane(currentInput, hitNormal);
+        }
+        else
+        {
+            // If we are moving AWAY from the wall, allow full movement
+            movementVector = currentInput;
+        }
     }
 
 
     void PlayerHitsGround()
     {
-
-        if (movementVector.y < 0f) //slowly push player down so they keep in contact with the ground
+        if (ySpeed < 0f) //slowly push player down so they keep in contact with the ground
         {
-            movementVector.y = -2f;
+            ySpeed = -2f;
         }
     }
 

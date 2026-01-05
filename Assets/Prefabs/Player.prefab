@@ -56,7 +56,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2504840365662170085}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -113,10 +113,10 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.4
-  m_SkinWidth: 0.02
+  m_SkinWidth: 0.1
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6063605472781321141
@@ -136,7 +136,6 @@ MonoBehaviour:
   isRunning: 0
   jumpForce: 9
   gravity: -15
-  lateralSprintSpeedPenalty: 0.75
   headCheckPosition: {fileID: 1614798033893175887}
   groundCheckPosition: {fileID: 1064467630500882901}
   groundCheckRadius: 0.5
