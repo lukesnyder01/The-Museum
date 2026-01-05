@@ -9,7 +9,6 @@ public class PlayerSpawn : MonoBehaviour
             var transform = GetComponent<Transform>();
             transform.position = GameManager.targetPlayerPos;
             transform.rotation = Quaternion.Euler(GameManager.targetPlayerRot);
-            GameManager.spawnPointSet = false;
         }
     }
 }
