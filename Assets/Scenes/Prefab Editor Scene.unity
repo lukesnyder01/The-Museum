@@ -436,6 +436,7 @@ MonoBehaviour:
   smoothing: {x: 3, y: 3}
   targetDirection: {x: 0, y: 0}
   targetCharacterDirection: {x: 0, y: 0}
+  mouseLookLocked: 0
   characterBody: {fileID: 1804837360}
 --- !u!81 &290812155
 AudioListener:
@@ -1878,7 +1879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1804837361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1904,6 +1905,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1
+  movementLocked: 0
 --- !u!143 &1804837362
 CharacterController:
   m_ObjectHideFlags: 0
