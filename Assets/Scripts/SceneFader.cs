@@ -5,10 +5,12 @@ using System.Collections;
 public class SceneFader : MonoBehaviour
 {
     [SerializeField] private CanvasGroup fadeCanvasGroup;
-    [SerializeField] private float fadeSpeed = 2f;
+    [SerializeField] private float fadeSpeed = 4f;
     private Canvas canvas;
 
     public static SceneFader Instance { get; private set; }
+
+    private bool isTransitioning = false;
 
     void Awake()
     {
@@ -42,17 +44,23 @@ public class SceneFader : MonoBehaviour
 
     public void TransitionToScene(string sceneName)
     {
+        if (isTransitioning) return;
+
         StartCoroutine(FadeAndLoad(sceneName));
     }
 
     private IEnumerator FadeAndLoad(string sceneName)
     {
+        isTransitioning = true;
+        Time.timeScale = 0f;
+
         // Fade out
         fadeCanvasGroup.gameObject.SetActive(true);
         fadeCanvasGroup.alpha = 0;
+
         while (fadeCanvasGroup.alpha < 1)
         {
-            fadeCanvasGroup.alpha += Time.deltaTime * fadeSpeed;
+            fadeCanvasGroup.alpha += Time.unscaledDeltaTime * fadeSpeed;
             yield return null;
         }
 
@@ -67,10 +75,11 @@ public class SceneFader : MonoBehaviour
         fadeCanvasGroup.alpha = 1;
         while (fadeCanvasGroup.alpha > 0)
         {
-            fadeCanvasGroup.alpha -= Time.deltaTime * fadeSpeed;
+            fadeCanvasGroup.alpha -= Time.unscaledDeltaTime * fadeSpeed;
             yield return null;
         }
-
+        isTransitioning = false;
+        Time.timeScale = 1f;
     }
 
     private IEnumerator InitialFade()

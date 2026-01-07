@@ -7,10 +7,12 @@ public class SceneLoadDoor : MonoBehaviour, IInteractable
     public Vector3 targetPosition;
     public Vector3 targetRotation;
 
-    public PlayerSpawnData playerSpawnData;
-
     [HideInInspector]
     public string targetScene;
+
+    private bool hasInteractedWith = false;
+
+    public string interactText;
 
 #if UNITY_EDITOR
 
@@ -32,16 +34,27 @@ public class SceneLoadDoor : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        AudioManager.Instance.PlayImmediate("Open Door");
-        SetPlayerSpawnTarget();
-        SceneFader.Instance.TransitionToScene(targetScene);
+        if (!hasInteractedWith)
+        {
+            hasInteractedWith = true;
+            SetPlayerSpawnTarget();
+            AudioManager.Instance.PlayImmediate("Open Door");
+            SceneFader.Instance.TransitionToScene(targetScene);
+        }
+
+    }
+
+    public string GetInteractText()
+    {
+        return interactText;
     }
 
     private void SetPlayerSpawnTarget()
     {
-        playerSpawnData.spawnDataInitialized = true;
-        playerSpawnData.position = targetPosition;
-        playerSpawnData.rotation = targetRotation;
+        GameManager gameManager = GameManager.Instance;
+        gameManager.spawnInitialized = true;
+        gameManager.lastSpawnPos = targetPosition;
+        gameManager.lastSpawnRot = targetRotation;
     }
 
 }

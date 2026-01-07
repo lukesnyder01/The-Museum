@@ -100,10 +100,17 @@ public class PlayerController : MonoBehaviour
 
         ySpeed += gravity * Time.deltaTime;
 
-        if (hitHead && ySpeed > 0)
+        if (hitHead)
         {
-            ySpeed = -0.1f;
+            Debug.Log("Hit head");
+
+            if (ySpeed > 0)
+            {
+                ySpeed = -2f;
+            }
         }
+
+
 
         if (Input.GetButtonDown("Jump") && isGrounded && !isSliding)
         {

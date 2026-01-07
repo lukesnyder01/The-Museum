@@ -2,16 +2,28 @@ using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
 {
-    public PlayerSpawnData playerSpawnData;
-
-    void Awake()
+    void Start()
     {
-        if (!playerSpawnData.spawnDataInitialized)
+        if (GameManager.Instance.spawnInitialized)
         {
-            var transform = GetComponent<Transform>();
+            CharacterController controller = GetComponent<CharacterController>();
 
-            transform.position = playerSpawnData.position;
-            transform.rotation = Quaternion.Euler(playerSpawnData.rotation);
+            if (controller != null)
+            {
+                // CRITICAL: Disable the CharacterController before moving
+                controller.enabled = false;
+                transform.position = GameManager.Instance.lastSpawnPos;
+                transform.rotation = Quaternion.Euler(GameManager.Instance.lastSpawnRot);
+                controller.enabled = true;
+            }
+            else
+            {
+                // Fallback if no CharacterController
+                transform.position = GameManager.Instance.lastSpawnPos;
+                transform.rotation = Quaternion.Euler(GameManager.Instance.lastSpawnRot);
+            }
+
+            Debug.Log($"Spawned at {GameManager.Instance.lastSpawnPos}");
         }
     }
 }

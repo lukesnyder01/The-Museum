@@ -15,11 +15,27 @@ public class PlayerInteract : MonoBehaviour
     private Transform cameraTransform;
     private IInteractable currentTarget;
 
-    private string defaultInteractText = "[E]";
+    private string defaultInteractText = " [E] ";
 
     void Awake()
     {
         cameraTransform = Camera.main.transform;
+
+        GameObject interactTextObject = GameObject.Find("Interact Text");
+        if (interactTextObject != null)
+        {
+            interactText = interactTextObject.GetComponent<TextMeshProUGUI>();
+
+            if (interactText == null)
+            {
+                Debug.LogError("Found 'Interact Text' GameObject, but it doesn't have a TextMeshProUGUI component!");
+            }
+        }
+        else
+        {
+            Debug.LogError("Could not find 'Interact Text' GameObject in the scene!");
+        }
+
         interactText.text = null;
     }
 
@@ -37,7 +53,8 @@ public class PlayerInteract : MonoBehaviour
             if (hitInfo.transform.TryGetComponent(out IInteractable interactable))
             {
                 currentTarget = interactable;
-                interactText.text = defaultInteractText;
+
+                interactText.text = defaultInteractText + interactable.GetInteractText();
             }
             else // Hit something, but not  an interactable
             {

@@ -16,11 +16,13 @@ public class InspectableObject : MonoBehaviour, IInteractable
 
     private GameObject canvas;
 
+    public string interactText;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        canvas = GameObject.Find("Canvas");
+        canvas = GameObject.Find("UI Canvas");
 
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         playerMouseLook = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SimpleSmoothMouseLook>();
@@ -59,8 +61,15 @@ public class InspectableObject : MonoBehaviour, IInteractable
         }
     }
 
+    public string GetInteractText()
+    {
+        return interactText;
+    }
+
     void StartInspecting()
     {
+        AudioManager.Instance.PlayImmediate("Pick Up Item");
+
         isBeingInspected = true;
 
         canvas.SetActive(false);

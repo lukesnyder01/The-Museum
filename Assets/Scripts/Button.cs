@@ -12,7 +12,7 @@ public class Button : MonoBehaviour, IInteractable
     private float returnTime = 0.1f;
     private Vector3 startPosition;
 
-    private AudioSource audioSource;
+    public string interactText;
 
     void Start()
     {
@@ -23,15 +23,13 @@ public class Button : MonoBehaviour, IInteractable
 
         startPosition = transform.position;
         depressTargetPos = startPosition + -transform.up * pressDistance;
-        audioSource = GetComponent<AudioSource>();
-
     }
 
 
     public void Interact()
     {
         StartCoroutine(DepressButton());
-        audioSource.Play();
+        AudioManager.Instance.PlayImmediate("Click Switch");
 
         if (targetActivatable != null)
         {
@@ -39,6 +37,10 @@ public class Button : MonoBehaviour, IInteractable
         }
     }
 
+    public string GetInteractText()
+    {
+        return interactText;
+    }
 
     IEnumerator DepressButton()
     {
