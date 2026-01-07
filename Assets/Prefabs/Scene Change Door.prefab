@@ -5152,6 +5152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
   targetRotation: {x: 0, y: 0, z: 0}
+  playerSpawnData: {fileID: 11400000, guid: fa8d9b1a09c96c54d9d84d8dc698a91a, type: 2}
   targetScene: Entry Hall
   targetSceneAsset: {fileID: 102900000, guid: e2816e2557a5bd448a32822ed53fb802, type: 3}
 --- !u!1 &2572919435862873695

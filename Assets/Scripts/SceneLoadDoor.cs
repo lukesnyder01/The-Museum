@@ -7,7 +7,8 @@ public class SceneLoadDoor : MonoBehaviour, IInteractable
     public Vector3 targetPosition;
     public Vector3 targetRotation;
 
-    // the scene in string
+    public PlayerSpawnData playerSpawnData;
+
     [HideInInspector]
     public string targetScene;
 
@@ -38,9 +39,9 @@ public class SceneLoadDoor : MonoBehaviour, IInteractable
 
     private void SetPlayerSpawnTarget()
     {
-        GameManager.spawnPointSet = true;
-        GameManager.targetPlayerPos = targetPosition;
-        GameManager.targetPlayerRot = targetRotation;
+        playerSpawnData.spawnDataInitialized = true;
+        playerSpawnData.position = targetPosition;
+        playerSpawnData.rotation = targetRotation;
     }
 
 }

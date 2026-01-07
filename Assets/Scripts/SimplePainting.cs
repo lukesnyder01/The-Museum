@@ -9,6 +9,13 @@ public class SimplePainting : MonoBehaviour
     [SerializeField]
     private Renderer targetRenderer;
 
+    private void Awake()
+    {
+        if (paintingTexture != null)
+        {
+            ApplyTexture(paintingTexture);
+        }
+    }
 
     private void OnValidate()
     {

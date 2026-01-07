@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
 {
+    public PlayerSpawnData playerSpawnData;
+
     void Awake()
     {
-        if (GameManager.spawnPointSet)
+        if (!playerSpawnData.spawnDataInitialized)
         {
             var transform = GetComponent<Transform>();
-            transform.position = GameManager.targetPlayerPos;
-            transform.rotation = Quaternion.Euler(GameManager.targetPlayerRot);
+
+            transform.position = playerSpawnData.position;
+            transform.rotation = Quaternion.Euler(playerSpawnData.rotation);
         }
     }
 }
