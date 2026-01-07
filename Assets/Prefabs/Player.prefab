@@ -72,7 +72,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 42e37a63ad691af4185d5ce63ca81321, type: 2}
+  - {fileID: 2100000, guid: 9bea14116cdf66e44b14b6b8fc459cdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,15 +131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717dbe25043190b4cb5715d06d794120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 4
-  runSpeed: 6
-  isRunning: 0
+  walkSpeed: 3
+  runSpeed: 5
   jumpForce: 9
   gravity: -15
   headCheckPosition: {fileID: 1614798033893175887}
-  groundCheckPosition: {fileID: 1064467630500882901}
-  groundCheckRadius: 0.5
-  headCheckRadius: 0.5
+  groundCheckRadius: 0.3
+  headCheckRadius: 0.3
   groundMask:
     serializedVersion: 2
     m_Bits: 1

@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 
     public float walkSpeed;
     public float runSpeed;
-    public bool isRunning;
 
     public float jumpForce;
 
@@ -17,7 +16,6 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
 
     public Transform headCheckPosition;
-    public Transform groundCheckPosition;
 
     private CharacterController characterController;
     private Transform cameraTransform;
@@ -150,6 +148,9 @@ public class PlayerController : MonoBehaviour
         const float ANGLE_STEP = 360f / RAY_COUNT;
         const float RAYCAST_RADIUS = 0.4f;
 
+        RaycastHit shallowestHit = new RaycastHit();
+        float shallowestAngle = 90f;
+
         // Raycase downward in a ring around the player
         for (int i = 0; i < RAY_COUNT; i++)
         {
@@ -172,11 +173,46 @@ public class PlayerController : MonoBehaviour
                 // Check if we hit a steep slope and haven't hit a flat area yet, we use this slope and start sliding
                 if (hitAngle > characterController.slopeLimit && hitAngle < 89)
                 {
+                    if (hitAngle < shallowestAngle)
+                    {
+                        shallowestAngle = hitAngle;
+                        shallowestHit = hitInRing;
+                    }
+
                     isGrounded = true;
                     isSliding = true;
-                    slopeHit = hitInRing;
                 }
             }
+
+            slopeHit = shallowestHit;
+        }
+    }
+
+    private void HandleGroundingSpherecast()
+    {
+        isGrounded = false;
+        isSliding = false;
+
+        float sphereRadius = characterController.radius;
+
+        Vector3 sphereOrigin = transform.position;
+
+        float groundOffset = 0.2f;
+        float castDistance = (characterController.height / 2f) - sphereRadius + groundOffset;
+
+        if (Physics.SphereCast(sphereOrigin, sphereRadius, Vector3.down, out var hit, castDistance, groundMask))
+        {
+
+            isGrounded = true;
+
+            float hitAngle = Vector3.Angle(Vector3.up, hit.normal);
+
+
+            if (hitAngle > characterController.slopeLimit && hitAngle < 89f)
+                {
+                    isSliding = true;
+                    slopeHit = hit;
+                }
         }
     }
 
@@ -223,12 +259,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && zMove == 1)
         {
             moveSpeed = runSpeed;
-            isRunning = true;
         }
         else
         {
             moveSpeed = walkSpeed;
-            isRunning = false;
         }
     }
 
