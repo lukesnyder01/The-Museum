@@ -55,6 +55,8 @@ public class SceneLoadDoor : MonoBehaviour, IInteractable
         gameManager.spawnInitialized = true;
         gameManager.lastSpawnPos = targetPosition;
         gameManager.lastSpawnRot = targetRotation;
+        Debug.Log(targetRotation);
+        Debug.Log(gameManager.lastSpawnRot);
     }
 
 }

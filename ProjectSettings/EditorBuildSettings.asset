@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Basement.unity
     guid: 7a00998465fcccf4eb9f43fd8c14037a
+  - enabled: 1
+    path: Assets/Scenes/Glass Sky.unity
+    guid: e1c54b69b9985504894523f7af8b2c53
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
 
             if (ySpeed > 0)
             {
+                // push the player down if they hit their head
                 ySpeed = -2f;
             }
         }
