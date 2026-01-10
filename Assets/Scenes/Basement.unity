@@ -12111,6 +12111,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 306247151481150079, guid: aa7bdac8f02ea8d46a3d818374d83df9, type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306247151481150079, guid: aa7bdac8f02ea8d46a3d818374d83df9, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 306247151481150079, guid: aa7bdac8f02ea8d46a3d818374d83df9, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 8300000, guid: 38db86d5637c3234d9f8e737ee471ec1, type: 3}
