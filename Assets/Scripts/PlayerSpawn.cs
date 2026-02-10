@@ -14,8 +14,6 @@ public class PlayerSpawn : MonoBehaviour
                 controller.enabled = false;
                 transform.position = GameManager.Instance.lastSpawnPos;
                 transform.rotation = Quaternion.Euler(GameManager.Instance.lastSpawnRot);
-                Debug.Log("Set player rotation to " + GameManager.Instance.lastSpawnRot);
-                Debug.Log("Player rotation " + transform.rotation.eulerAngles);
                 controller.enabled = true;
             }
             else

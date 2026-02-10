@@ -179,6 +179,7 @@ Material:
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
+    - _Albedo_Octave_Tile: 1.452
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
     - _AlphaCutoffPostpass: 0.5
@@ -259,7 +260,7 @@ Material:
     - _NormalMapSpace: 0
     - _NormalScale: 4.88
     - _Normal_Amount: 4.13
-    - _Normal_Strength: 0.31
+    - _Normal_Strength: 0.831
     - _OcclusionStrength: 1
     - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
