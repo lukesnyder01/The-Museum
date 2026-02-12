@@ -180,7 +180,7 @@ Material:
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
-    - _Albedo_Octave_Tile: 0.14
+    - _Albedo_Octave_Tile: 0.1
     - _Albedo_Tile: 0.226
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 0
@@ -255,7 +255,7 @@ Material:
     - _LinkDetailsWithBase: 0
     - _MaterialID: 1
     - _MaterialTypeMask: 2
-    - _Metallic: 0.186
+    - _Metallic: 0.139
     - _MetallicRemapMax: 0
     - _MetallicRemapMin: 0
     - _Mode: 0
@@ -264,10 +264,10 @@ Material:
     - _Normal_Amount: 3.82
     - _Normal_Octave_Blend: 0.853
     - _Normal_Octave_Tile: 0.05
-    - _Normal_Strength: 0.91
-    - _Normal_Tile: 0.382
+    - _Normal_Strength: 0.52
+    - _Normal_Tile: 0.1
     - _OcclusionStrength: 1
-    - _Octave_Blend: 0.33
+    - _Octave_Blend: 0.569
     - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
@@ -282,7 +282,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Smoothness: 0.246
+    - _Smoothness: 0.143
     - _SmoothnessRemapMax: 0
     - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
