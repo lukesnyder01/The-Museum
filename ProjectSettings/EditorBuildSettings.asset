@@ -17,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Glass Sky.unity
     guid: e1c54b69b9985504894523f7af8b2c53
+  - enabled: 1
+    path: Assets/Scenes/People No Longer Live Here.unity
+    guid: 56d950e1d281a2f43a85b6447cf84ee9
+  - enabled: 1
+    path: Assets/Scenes/Amber Gallery.unity
+    guid: a6de3fa751975b540bf64526b6dc6e3d
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

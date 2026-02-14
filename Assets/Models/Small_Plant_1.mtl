@@ -1,0 +1,5 @@
+newmtl Foliage
+map_Kd foliage albedo.png
+Kd 1 1 1
+d 1
+
