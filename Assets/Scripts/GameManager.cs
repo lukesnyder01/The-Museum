@@ -25,18 +25,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void CollectGem(Vector3 gemPos)
     {
         collectedGems.Add(gemPos);
         gemsCollectedText.text = collectedGems.Count.ToString();
+        AudioManager.Instance.PlayImmediate("Crystal Chime");
+        PersistentCanvas.Instance.gemsCollectedText.text = collectedGems.Count.ToString();
     }
+
 
     private void Initialize()
     {
         spawnInitialized = false;
     }
-
-
-
 
 }

@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 8952002851347802697}
   - component: {fileID: 7751764986042515239}
   - component: {fileID: 323791099847587950}
+  - component: {fileID: 8142587389633173702}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -195,6 +196,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2175173401398580514}
+--- !u!114 &8142587389633173702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432515491406375995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72de55e13ea1f1a4d8fe7037030a070c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gemsCollectedText: {fileID: 8638012466425155478}
 --- !u!1 &2175173401398580514
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,7 +755,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gems
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

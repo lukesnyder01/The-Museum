@@ -17,17 +17,9 @@ public class GemController : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            CollectGem();
+            GameManager.Instance.CollectGem(gemPos);
+            Destroy(gameObject);
         }
     }
 
-
-    void CollectGem()
-    {
-        GameManager.Instance.CollectGem(gemPos);
-
-        AudioManager.Instance.PlayImmediate("Crystal Chime");
-
-        Destroy(gameObject);
-    }
 }
