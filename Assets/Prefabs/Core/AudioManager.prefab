@@ -73,3 +73,12 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: Crystal Chime
+    clip: {fileID: 8300000, guid: fd1d58ac50101654492508140500a5aa, type: 3}
+    volume: 0.733
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
