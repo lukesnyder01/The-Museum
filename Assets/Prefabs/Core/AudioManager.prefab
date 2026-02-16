@@ -75,7 +75,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Crystal Chime
     clip: {fileID: 8300000, guid: fd1d58ac50101654492508140500a5aa, type: 3}
-    volume: 0.733
+    volume: 0.674
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0

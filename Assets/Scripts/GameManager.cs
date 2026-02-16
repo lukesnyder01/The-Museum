@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public Vector3 lastSpawnRot;
 
     public List<Vector3> collectedGems = new List<Vector3>();
-    public TextMeshProUGUI gemsCollectedText;
 
     public static GameManager Instance { get; private set; }
 
@@ -29,7 +28,6 @@ public class GameManager : MonoBehaviour
     public void CollectGem(Vector3 gemPos)
     {
         collectedGems.Add(gemPos);
-        gemsCollectedText.text = collectedGems.Count.ToString();
         AudioManager.Instance.PlayImmediate("Crystal Chime");
         PersistentCanvas.Instance.gemsCollectedText.text = collectedGems.Count.ToString();
     }
