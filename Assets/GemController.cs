@@ -9,9 +9,9 @@ public class GemController : MonoBehaviour
     void Start()
     {
         gemPos = transform.position;
+
         if (GameManager.Instance.collectedGems.Contains(gemPos))
             gameObject.SetActive(false);
-        Debug.Log(gemPos);
     }
 
 

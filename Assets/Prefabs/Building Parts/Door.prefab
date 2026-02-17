@@ -19,7 +19,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &215057986693530754
 Transform:
@@ -346,3 +346,4 @@ MonoBehaviour:
   openRotation: {x: -0, y: -0.57062244, z: -0, w: 0.82121253}
   rotationSpeed: 90
   moveSpeed: 0.5
+  doorCanClose: 1
