@@ -12,6 +12,8 @@ public class KeypadLock: MonoBehaviour
     private int[] enteredDigits;
     private int[] correctDigits;
 
+    public GameObject unlockTarget;
+
 
     private void Start()
     {
@@ -62,6 +64,14 @@ public class KeypadLock: MonoBehaviour
     private void UnlockDoor()
     {
         Debug.Log("Passcode correct, door unlocking!");
+        if (unlockTarget.TryGetComponent<IUnlockable>(out IUnlockable unlockable))
+        {
+            unlockable.Unlock();
+        }
+        else
+        {
+            Debug.LogWarning("No valid unlock IUnlockable found");
+        }
     }
 
 
