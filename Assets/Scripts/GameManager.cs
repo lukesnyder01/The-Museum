@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Vector3 lastSpawnRot;
 
     public List<Vector3> collectedGems = new List<Vector3>();
+    public List<Vector3> unlockedDoors = new List<Vector3>();
 
     public static GameManager Instance { get; private set; }
 

@@ -17,6 +17,8 @@ public class LockedSceneLoadDoor : MonoBehaviour, IInteractable, IUnlockable
     public string interactText;
     public string lockedInteractText = "This door is locked";
 
+    public Vector3 pos;
+
 #if UNITY_EDITOR
 
     // the scene in asset
@@ -35,11 +37,20 @@ public class LockedSceneLoadDoor : MonoBehaviour, IInteractable, IUnlockable
 
 #endif
 
+    public void Start()
+    {
+        pos = transform.position;
+
+        if (GameManager.Instance.unlockedDoors.Contains(pos))
+            Unlock();
+    }
+
+
     public void Interact()
     {
         if (locked)
         {
-            // play door handle jiggle sound
+            AudioManager.Instance.PlayImmediate("Door Handle Jiggle");
         }
         else
         {
@@ -49,6 +60,7 @@ public class LockedSceneLoadDoor : MonoBehaviour, IInteractable, IUnlockable
                 SetPlayerSpawnTarget();
                 AudioManager.Instance.PlayImmediate("Open Door");
                 SceneFader.Instance.TransitionToScene(targetScene);
+                GameManager.Instance.unlockedDoors.Add(pos);
             }
         }
     }

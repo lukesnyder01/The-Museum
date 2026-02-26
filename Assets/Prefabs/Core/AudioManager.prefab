@@ -57,9 +57,9 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Pick Up Item
     clip: {fileID: 8300000, guid: 1357f18136183ee4f856b08bb1a04ee2, type: 3}
-    volume: 0.764
+    volume: 0.425
     volumeVariance: 0
-    pitch: 1
+    pitch: 1.36
     pitchVariance: 0
     loop: 0
     mixerGroup: {fileID: 0}
@@ -76,6 +76,24 @@ MonoBehaviour:
   - name: Crystal Chime
     clip: {fileID: 8300000, guid: fd1d58ac50101654492508140500a5aa, type: 3}
     volume: 0.674
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Door Handle Jiggle
+    clip: {fileID: 8300000, guid: 8e3b6f6559a003c4f8ab8fd549110ab1, type: 3}
+    volume: 0.707
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Loop Goblins
+    clip: {fileID: 8300000, guid: 3eeb456179801664ab1e757b78f62d90, type: 3}
+    volume: 0.622
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
