@@ -2239,7 +2239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1770374336906940615}
   m_Layer: 0
-  m_Name: Bench
+  m_Name: Bench 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
